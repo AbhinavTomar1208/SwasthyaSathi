@@ -1,0 +1,128 @@
+{
+  "source": "diabetes_binary_health_indicators_BRFSS2015.csv",
+  "training_mode": "full_original_distribution",
+  "total_rows": 253680,
+  "features": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Age"
+  ],
+  "splits": {
+    "train": 176778,
+    "validation": 38104,
+    "test": 38798
+  },
+  "validation_metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.865893344530758,
+      "precision": 0.5464632454923717,
+      "recall": 0.15026697177726925,
+      "f1": 0.23571642237511217,
+      "roc_auc": 0.8214069042416037,
+      "pr_auc": 0.4031418557263366,
+      "brier": 0.09806866816978534,
+      "confusion_matrix": [
+        [
+          32206,
+          654
+        ],
+        [
+          4456,
+          788
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 38104,
+      "positive_rate": 0.13762334663027503
+    },
+    "Random Forest": {
+      "accuracy": 0.86710056686962,
+      "precision": 0.6036866359447005,
+      "recall": 0.09992372234935164,
+      "f1": 0.17146596858638743,
+      "roc_auc": 0.827358043717354,
+      "pr_auc": 0.4285563102567227,
+      "brier": 0.09615817178355653,
+      "confusion_matrix": [
+        [
+          32516,
+          344
+        ],
+        [
+          4720,
+          524
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 38104,
+      "positive_rate": 0.13762334663027503
+    },
+    "XGBoost": {
+      "accuracy": 0.8682290573168171,
+      "precision": 0.5846621108580107,
+      "recall": 0.14683447749809306,
+      "f1": 0.23472031702484378,
+      "roc_auc": 0.8297025455982968,
+      "pr_auc": 0.43347749534806007,
+      "brier": 0.0954923927783966,
+      "confusion_matrix": [
+        [
+          32313,
+          547
+        ],
+        [
+          4474,
+          770
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 38104,
+      "positive_rate": 0.13762334663027503
+    }
+  },
+  "selected_model": "XGBoost",
+  "selection_metric": "validation_pr_auc",
+  "decision_threshold": 0.125,
+  "test_metrics": {
+    "accuracy": 0.7008608691169648,
+    "precision": 0.29301985787341434,
+    "recall": 0.821142750790992,
+    "f1": 0.43191385217816936,
+    "roc_auc": 0.8277593290700713,
+    "pr_auc": 0.4316294855148652,
+    "brier": 0.09649405628442764,
+    "confusion_matrix": [
+      [
+        22780,
+        10645
+      ],
+      [
+        961,
+        4412
+      ]
+    ],
+    "threshold": 0.125,
+    "n": 38798,
+    "positive_rate": 0.13848651992370742
+  },
+  "notes": [
+    "The outcome is REPORTED diabetes or prediabetes, not future onset.",
+    "Survey data from US BRFSS 2015; not validated for Indian populations.",
+    "Threshold maximizes validation F2 for demonstration, not clinical use.",
+    "Identical predictor profiles grouped across splits; not verified unique respondents.",
+    "Probabilities are uncalibrated unless independently validated."
+  ],
+  "elapsed_seconds": 6.5
+}

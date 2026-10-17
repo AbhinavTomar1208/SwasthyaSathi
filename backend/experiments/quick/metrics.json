@@ -1,0 +1,351 @@
+{
+  "source": "diabetes_binary_health_indicators_BRFSS2015.csv",
+  "training_mode": "development_subset",
+  "resampling_experiment": "compare",
+  "sampled_class_ratio": 0.4,
+  "total_rows": 30000,
+  "features": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Age"
+  ],
+  "splits": {
+    "train": 21045,
+    "validation": 4441,
+    "test": 4514
+  },
+  "original_class_prevalence": {
+    "train": 0.13485388453314326,
+    "validation": 0.1393830218419275,
+    "test": 0.1382365972529907
+  },
+  "resampling_reports": {
+    "none": {
+      "method": "none",
+      "before": {
+        "0": 18207,
+        "1": 2838
+      },
+      "after": {
+        "0": 18207,
+        "1": 2838
+      },
+      "created_or_removed_rows": 0
+    },
+    "smotenc": {
+      "method": "smotenc",
+      "ratio_requested": 0.4,
+      "categorical_features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Age"
+      ],
+      "continuous_features": [
+        "BMI"
+      ],
+      "before": {
+        "0": 18207,
+        "1": 2838
+      },
+      "after": {
+        "0": 18207,
+        "1": 7282
+      },
+      "created_or_removed_rows": 4444,
+      "note": ""
+    },
+    "smotenc_tomek": {
+      "method": "smotenc_tomek",
+      "ratio_requested": 0.4,
+      "categorical_features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Age"
+      ],
+      "continuous_features": [
+        "BMI"
+      ],
+      "before": {
+        "0": 18207,
+        "1": 2838
+      },
+      "after": {
+        "0": 17515,
+        "1": 7282
+      },
+      "created_or_removed_rows": 3752,
+      "note": "Tomek nearest-neighbor distances use the encoded survey values; ordinal/categorical distance choice is a limitation."
+    }
+  },
+  "validation_metrics": {
+    "Logistic Regression [none]": {
+      "accuracy": 0.8612925016888088,
+      "precision": 0.5096774193548387,
+      "recall": 0.12762520193861066,
+      "f1": 0.2041343669250646,
+      "roc_auc": 0.8204487834651694,
+      "pr_auc": 0.3901375393451609,
+      "brier": 0.10051807477758543,
+      "confusion_matrix": [
+        [
+          3746,
+          76
+        ],
+        [
+          540,
+          79
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "Random Forest [none]": {
+      "accuracy": 0.868047736996172,
+      "precision": 0.6896551724137931,
+      "recall": 0.09693053311793215,
+      "f1": 0.16997167138810199,
+      "roc_auc": 0.8240576832199266,
+      "pr_auc": 0.41902364887338484,
+      "brier": 0.0983652761819305,
+      "confusion_matrix": [
+        [
+          3795,
+          27
+        ],
+        [
+          559,
+          60
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "XGBoost [none]": {
+      "accuracy": 0.8637694213015087,
+      "precision": 0.5397727272727273,
+      "recall": 0.15347334410339256,
+      "f1": 0.2389937106918239,
+      "roc_auc": 0.8252433196467353,
+      "pr_auc": 0.41113453687752854,
+      "brier": 0.09860319644212723,
+      "confusion_matrix": [
+        [
+          3741,
+          81
+        ],
+        [
+          524,
+          95
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "Logistic Regression [smotenc]": {
+      "accuracy": 0.8200855663138933,
+      "precision": 0.37637362637362637,
+      "recall": 0.44264943457189015,
+      "f1": 0.40682999257609503,
+      "roc_auc": 0.8109958162462201,
+      "pr_auc": 0.36874602974906345,
+      "brier": 0.1210287639659294,
+      "confusion_matrix": [
+        [
+          3368,
+          454
+        ],
+        [
+          345,
+          274
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "Random Forest [smotenc]": {
+      "accuracy": 0.8358477820310741,
+      "precision": 0.4003623188405797,
+      "recall": 0.3570274636510501,
+      "f1": 0.3774551665243382,
+      "roc_auc": 0.8112864134096536,
+      "pr_auc": 0.38902733877914814,
+      "brier": 0.11362839226421569,
+      "confusion_matrix": [
+        [
+          3491,
+          331
+        ],
+        [
+          398,
+          221
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "XGBoost [smotenc]": {
+      "accuracy": 0.8306687682954289,
+      "precision": 0.39186991869918697,
+      "recall": 0.3893376413570275,
+      "f1": 0.3905996758508914,
+      "roc_auc": 0.8088413817123719,
+      "pr_auc": 0.37958362693914055,
+      "brier": 0.11383920907974243,
+      "confusion_matrix": [
+        [
+          3448,
+          374
+        ],
+        [
+          378,
+          241
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "Logistic Regression [smotenc_tomek]": {
+      "accuracy": 0.8083764917811304,
+      "precision": 0.3595641646489104,
+      "recall": 0.4798061389337641,
+      "f1": 0.4110726643598616,
+      "roc_auc": 0.8122216079174307,
+      "pr_auc": 0.3707196013801176,
+      "brier": 0.12503860903335678,
+      "confusion_matrix": [
+        [
+          3293,
+          529
+        ],
+        [
+          322,
+          297
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "Random Forest [smotenc_tomek]": {
+      "accuracy": 0.8248142310290475,
+      "precision": 0.38152011922503726,
+      "recall": 0.4135702746365105,
+      "f1": 0.39689922480620154,
+      "roc_auc": 0.8123585584351796,
+      "pr_auc": 0.3909750395910304,
+      "brier": 0.1165963844179967,
+      "confusion_matrix": [
+        [
+          3407,
+          415
+        ],
+        [
+          363,
+          256
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    },
+    "XGBoost [smotenc_tomek]": {
+      "accuracy": 0.8245890565188021,
+      "precision": 0.3805970149253731,
+      "recall": 0.41195476575121165,
+      "f1": 0.395655546935609,
+      "roc_auc": 0.8108396334798365,
+      "pr_auc": 0.38611446009098094,
+      "brier": 0.11563065648078918,
+      "confusion_matrix": [
+        [
+          3407,
+          415
+        ],
+        [
+          364,
+          255
+        ]
+      ],
+      "threshold": 0.5,
+      "n": 4441,
+      "positive_rate": 0.1393830218419275
+    }
+  },
+  "selected_model": "Random Forest [none]",
+  "selected_resampling": "none",
+  "selection_metric": "validation_pr_auc",
+  "decision_threshold": 0.15,
+  "test_metrics": {
+    "accuracy": 0.7252990695613647,
+    "precision": 0.3082191780821918,
+    "recall": 0.7932692307692307,
+    "f1": 0.4439461883408072,
+    "roc_auc": 0.8299069771274141,
+    "pr_auc": 0.41459613936444506,
+    "brier": 0.09682637466235428,
+    "confusion_matrix": [
+      [
+        2779,
+        1111
+      ],
+      [
+        129,
+        495
+      ]
+    ],
+    "threshold": 0.15,
+    "n": 4514,
+    "positive_rate": 0.1382365972529907
+  },
+  "notes": [
+    "The target is reported diabetes/prediabetes, NOT future onset or clinical diagnosis.",
+    "All synthetic samples and Tomek cleaning applied to TRAIN only, never validation or test.",
+    "SMOTENC treats all discrete survey codes as categories; order is not modeled during synthesis.",
+    "Tomek cleaning can remove difficult but meaningful minority-neighbor examples; validate benefit.",
+    "Resampling changes training prevalence: predicted probabilities are not calibrated for original prevalence.",
+    "Survey data from US 2015; not validated for Indian populations or clinical decisions.",
+    "Threshold maximizes validation F2 for demonstration, not clinical use.",
+    "Identical predictor profiles grouped across splits; this cannot verify unique respondents."
+  ],
+  "elapsed_seconds": 8.0
+}
